@@ -3,10 +3,13 @@ package com.kp.game.service.jdbc;
 import com.kp.game.entity.Score;
 import com.kp.game.service.exceptions.ScoreException;
 import com.kp.game.service.interfces.ScoreService;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class ScoreServiceJDBC implements ScoreService {
     public static final String URL = "jdbc:postgresql://localhost:5432/gamestudio";//шлях до бази данних

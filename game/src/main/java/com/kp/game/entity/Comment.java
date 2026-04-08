@@ -1,18 +1,35 @@
 package com.kp.game.entity;
 
+import jakarta.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "comment")
 public class Comment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     private String game;
     private String player;
     private String comment;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "commented_on")
     private Date commentedOn;
+
+    public Comment() {
+    }
 
     public Comment(String game, String player, String comment, Date commentedOn) {
         this.game = game;
         this.player = player;
         this.comment = comment;
         this.commentedOn = commentedOn;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getGame() {
@@ -50,10 +67,12 @@ public class Comment {
     @Override
     public String toString() {
         return "Comment{" +
-                "game='" + game + '\'' +
+                "id=" + id +
+                ", game='" + game + '\'' +
                 ", player='" + player + '\'' +
                 ", comment='" + comment + '\'' +
                 ", commentedOn=" + commentedOn +
                 '}';
     }
+
 }

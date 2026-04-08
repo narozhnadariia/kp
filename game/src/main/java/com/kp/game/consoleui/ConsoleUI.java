@@ -11,6 +11,10 @@ import com.kp.game.service.interfces.ScoreService;
 import com.kp.game.service.jdbc.CommentServiceJDBC;
 import com.kp.game.service.jdbc.RatingServiceJDBC;
 import com.kp.game.service.jdbc.ScoreServiceJDBC;
+import com.kp.game.service.jpa.CommentServiceJPA;
+import com.kp.game.service.jpa.RatingServiceJPA;
+import com.kp.game.service.jpa.ScoreServiceJPA;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -22,12 +26,24 @@ import java.util.Scanner;
 public class ConsoleUI {
     private final Scanner scanner;
     private Game game;
-    private final ScoreService scoreService = new ScoreServiceJDBC();
-    private final RatingService ratingService = new RatingServiceJDBC();
-    private final CommentService comment = new CommentServiceJDBC();
+
+    private final ScoreService scoreService;
+    private final RatingService ratingService;
+    private final CommentService commentService;
+//
+//    private final ScoreService scoreService = new ScoreServiceJPA();
+//    private final RatingService ratingService = new RatingServiceJPA();
+//    private final CommentService commentService = new CommentServiceJPA();
 
 
-    public ConsoleUI() {
+
+    public ConsoleUI(
+            @Autowired ScoreService scoreService,
+            @Autowired RatingService ratingService,
+            @Autowired CommentService commentService) {
+        this.scoreService = scoreService;
+        this.ratingService = ratingService;
+        this.commentService = commentService;
         this.scanner = new Scanner(System.in);
     }
 
@@ -130,16 +146,20 @@ public class ConsoleUI {
         System.out.println("Winner: " + winner.getName());
         scoreService.addScore(new Score("Slide-A-Lama",winner.getName(),winner.getScore(), new Date()));
         ratingService.setRating(new Rating("Slide-A-Lama",winner.getName(),getPlayerRating(), new Date()));
-        comment.addComment(new Comment("Slide-A-Lama", winner.getName(), getPLayerComment(), new  Date()));
+        commentService.addComment(new Comment("Slide-A-Lama", winner.getName(), getPlayerComment(), new  Date()));
+        System.out.println("YIHUKJLKf");
     }
 
-    private String getPLayerComment() {
-        var comment = "";
-        while(comment.isEmpty() || comment.length() > 75){
-            System.out.println("Enter your comment[max 75 symbols]: ");
-            if(scanner.hasNext()) {
-                comment = scanner.nextLine();
-                //scanner.nextLine();
+    private String getPlayerComment() {
+        String comment = "";
+        while (comment.isEmpty() || comment.length() > 75) {
+            System.out.println("Enter your comment [max 75 symbols]: ");
+            comment = scanner.nextLine();
+
+            if (comment.isEmpty()) {
+                System.out.println("Comment cannot be empty.");
+            } else if (comment.length() > 75) {
+                System.out.println("Comment is too long.");
             }
         }
         return comment;
@@ -161,13 +181,16 @@ public class ConsoleUI {
         return rating >= 0 && rating <= 5;
     }
 
-    private int getPlayerRating(){
+    private int getPlayerRating() {
         int rating = -1;
-        while(!isRatingValid(rating)){
+        while (!isRatingValid(rating)) {
             System.out.println("Enter your rating[0-5]: ");
-            if(scanner.hasNext()) {
+            if (scanner.hasNextInt()) {
                 rating = scanner.nextInt();
+            } else {
+                System.out.println("Invalid input");
             }
+            scanner.nextLine();
         }
         return rating;
     }
@@ -217,21 +240,30 @@ public class ConsoleUI {
     }
 
     private int chooseIndex(Direction direction) {
-        if (direction == Direction.TOP) {
-            System.out.print("Choose column (1-5): ");
-        } else {
-            System.out.print("Choose row (1-5): ");
-        }
         int index = -1;
+
         while (index < 1 || index > 5) {
-            if(scanner.hasNextInt()) {
+            if (direction == Direction.TOP) {
+                System.out.print("Choose column (1-5): ");
+            } else {
+                System.out.print("Choose row (1-5): ");
+            }
+
+            if (scanner.hasNextInt()) {
                 index = scanner.nextInt();
                 scanner.nextLine();
-            }else
+
+                if (index < 1 || index > 5) {
+                    System.out.println("Invalid index");
+                    System.out.println("Try again (1-5)");
+                }
+            } else {
+                System.out.println("Invalid input");
+                System.out.println("Try again (1-5)");
                 scanner.nextLine();
-            System.out.println("Invalid index");
-            System.out.println("Try again (1-5)");
+            }
         }
+
         return index - 1;
     }
 
