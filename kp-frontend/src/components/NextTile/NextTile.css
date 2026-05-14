@@ -1,0 +1,30 @@
+.next-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px;
+    background: #fff4c7;
+    border: 4px solid #8a5a12;
+    border-radius: 16px;
+}
+
+.next-tile-label {
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.next-tile-button {
+    padding: 8px 14px;
+    border: 3px solid #8a5a12;
+    border-radius: 10px;
+    background: #ffd45a;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.next-tile-button:hover {
+    transform: scale(1.05);
+}

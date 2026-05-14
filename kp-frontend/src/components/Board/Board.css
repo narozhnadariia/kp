@@ -1,0 +1,39 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(5, 90px);
+    grid-template-rows: repeat(5, 90px);
+    gap: 4px;
+
+    padding: 12px;
+    background: #d69a28;
+    border: 5px solid #8a5a12;
+    border-radius: 16px;
+}
+
+/*збільшити мапу*/
+/*.board {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(6, 64px);*/
+/*    grid-template-rows: repeat(6, 64px);*/
+/*    gap: 8px;*/
+
+/*    padding: 14px;*/
+/*    background: #d99a19;*/
+/*    border: 6px solid #8a5a12;*/
+/*    border-radius: 16px;*/
+/*    box-shadow: 0 6px 0 #5f3b0b;*/
+/*}*/
+
+/* поміняти плити місцями */
+/*.board-tile {*/
+/*    padding: 0;*/
+/*    border: none;*/
+/*    background: transparent;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.selected-tile {*/
+/*    outline: 5px solid #ff3b3b;*/
+/*    border-radius: 10px;*/
+/*}*/
+/* */

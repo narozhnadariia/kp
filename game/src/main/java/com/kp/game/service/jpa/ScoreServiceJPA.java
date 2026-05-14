@@ -5,7 +5,6 @@ import com.kp.game.service.interfces.ScoreService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -34,6 +33,7 @@ public class ScoreServiceJPA implements ScoreService {
                 .setMaxResults(10)
                 .getResultList();
     }
+
 
     @Override
     public void reset() {

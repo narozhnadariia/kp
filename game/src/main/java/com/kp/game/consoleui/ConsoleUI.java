@@ -14,6 +14,7 @@ import com.kp.game.service.jdbc.ScoreServiceJDBC;
 import com.kp.game.service.jpa.CommentServiceJPA;
 import com.kp.game.service.jpa.RatingServiceJPA;
 import com.kp.game.service.jpa.ScoreServiceJPA;
+import com.kp.game.core.Board;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -144,7 +145,9 @@ public class ConsoleUI {
         printPlayerInfo();
         Actor winner = game.getGameState() == GameState.PLAYER1_WON ? game.getPlayer1() : game.getPlayer2();
         System.out.println("Winner: " + winner.getName());
-        scoreService.addScore(new Score("Slide-A-Lama",winner.getName(),winner.getScore(), new Date()));
+        //Board bord = bord.calculateVerticalScore();
+        scoreService.addScore(new Score("Slide-A-Lama",winner.getName(),winner.getScore(), new Date()  ));
+
         ratingService.setRating(new Rating("Slide-A-Lama",winner.getName(),getPlayerRating(), new Date()));
         commentService.addComment(new Comment("Slide-A-Lama", winner.getName(), getPlayerComment(), new  Date()));
         System.out.println("YIHUKJLKf");
@@ -164,7 +167,6 @@ public class ConsoleUI {
         }
         return comment;
     }
-
     private void moveResult() {
         if (game.getLastMoveScore() > 0) {
             System.out.println("Combination found! +" + game.getLastMoveScore() + " points");

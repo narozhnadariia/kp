@@ -20,6 +20,8 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class ServiceSelectionConfig {
 
+//    клас RestClientConfig каже Spring, що це конфігурація
+//    метод з @Bean каже: створи об’єкт RestTemplate і збережи його у Spring-контексті
     @Bean
     public ScoreService scoreService(ScoreServiceJPA scoreServiceJPA,
                                      RestTemplate restTemplate,

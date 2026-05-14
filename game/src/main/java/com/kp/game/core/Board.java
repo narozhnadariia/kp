@@ -115,9 +115,10 @@ public class Board {
                 totalScore += grid[grid.length - 1][col].getPoints(count);
             }
         }
-
         return totalScore;
+
     }
+
 
     public void clearMatchesAndFill() {//коли склалась комбінація то тут фішки спускаються вниз і нові заповняються
         boolean[][] toClear = new boolean[grid.length][grid[0].length];
@@ -239,6 +240,55 @@ public class Board {
 
         return copyBoard.culculateHorizontalScore();
     }
+
+    // бомба
+//    public void explodeRandomArea() {
+//        int centerRow = random.nextInt(grid.length);
+//        int centerCol = random.nextInt(grid[0].length);
+//
+//        for (int row = centerRow - 1; row <= centerRow + 1; row++) {
+//            for (int col = centerCol - 1; col <= centerCol + 1; col++) {
+//                if (row >= 0 && row < grid.length && col >= 0 && col < grid[0].length) {
+//                    grid[row][col] = null;
+//                }
+//            }
+//        }
+//
+//        fillEmptyCells();
+//    }
+//
+//    private void fillEmptyCells() {
+//        for (int col = 0; col < grid[0].length; col++) {
+//            int writeRow = grid.length - 1;
+//
+//            for (int row = grid.length - 1; row >= 0; row--) {
+//                if (grid[row][col] != null) {
+//                    grid[writeRow][col] = grid[row][col];
+//
+//                    if (writeRow != row) {
+//                        grid[row][col] = null;
+//                    }
+//
+//                    writeRow--;
+//                }
+//            }
+//
+//            while (writeRow >= 0) {
+//                grid[writeRow][col] = getRandomTile();
+//                writeRow--;
+//            }
+//        }
+//    }
+//
+
+    // поміняти плити місцями
+//    public void swapTiles(int row1, int col1, int row2, int col2) {
+//        TileType temp = grid[row1][col1];
+//        grid[row1][col1] = grid[row2][col2];
+//        grid[row2][col2] = temp;
+//    }
+    //
+
 
     public int getRowsSum() {
         return grid.length;

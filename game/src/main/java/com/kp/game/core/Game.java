@@ -15,6 +15,11 @@ public class Game {
 
     public Game(GameMode gameMode, String firstPlayerName, String secondPlayerName, BotDifficulty botDifficulty) {
         this.board = new Board(5,5);
+
+        //збільшити мапу
+//        this.board = new Board(6, 6);
+        //
+
         this.board.fillRandom();
         this.gameMode = gameMode;
         this.player1 = new Player(firstPlayerName);
@@ -33,6 +38,59 @@ public class Game {
         this.currentPlayer = player1;
         this.gameState = GameState.PLAYING;
     }
+
+    //крок назад
+//    public Game copy() {
+//        Game copyGame = new Game(
+//                this.gameMode,
+//                this.player1.getName(),
+//                this.player2.getName(),
+//                BotDifficulty.EASY
+//        );
+//
+//        copyGame.board = this.board.copy();
+//
+//        copyGame.player1 = copyActor(this.player1);
+//        copyGame.player2 = copyActor(this.player2);
+//
+//        copyGame.currentPlayer = this.currentPlayer == this.player1
+//                ? copyGame.player1
+//                : copyGame.player2;
+//
+//        copyGame.gameState = this.gameState;
+//        copyGame.gameMode = this.gameMode;
+//        copyGame.nextTile = this.nextTile;
+//        copyGame.lastMoveScore = this.lastMoveScore;
+//        copyGame.lastMoveLamasWon = this.lastMoveLamasWon;
+//
+//        return copyGame;
+//    }
+//
+//    private Actor copyActor(Actor actor) {
+//        Actor copy;
+//
+//        if (actor instanceof HardBot) {
+//            copy = new HardBot();
+//        } else if (actor instanceof EasyBot) {
+//            copy = new EasyBot();
+//        } else {
+//            copy = new Player(actor.getName());
+//        }
+//
+//        copy.increaseScore(actor.getScore());
+//        copy.setLamaMilestones(actor.getLamaMilestones());
+//
+//        while (copy.getLamaCount() < actor.getLamaCount()) {
+//            copy.increaseLamaCount();
+//        }
+//
+//        while (copy.getLamaCount() > actor.getLamaCount()) {
+//            copy.decreaseLamaCount();
+//        }
+//
+//        return copy;
+//    }
+    //
 
     public boolean isGameOver() {
         return gameState != GameState.PLAYING;
@@ -92,6 +150,49 @@ public class Game {
 
         nextTile = board.getRandomTile();
     }
+
+    // поміняти плити місцями
+//    public void swapTiles(int row1, int col1, int row2, int col2) {
+//        lastMoveScore = 0;
+//        lastMoveLamasWon = 0;
+//
+//        board.swapTiles(row1, col1, row2, col2);
+//
+//        int score = board.calculateTotalScore();
+//        lastMoveScore = score;
+//        currentPlayer.increaseScore(score);
+//
+//        if (score > 0) {
+//            board.clearMatchesAndFill();
+//        }
+//
+//        checkWinner();
+//
+//        if (!isGameOver()) {
+//            switchTurn();
+//        }
+//
+//        nextTile = board.getRandomTile();
+//    }
+//
+
+    //бомба
+//    public void useBomb() {
+//        lastMoveScore = 0;
+//        lastMoveLamasWon = 0;
+//
+//        board.explodeRandomArea();
+//
+//        checkWinner();
+//
+//        if (!isGameOver()) {
+//            switchTurn();
+//        }
+//
+//        nextTile = board.getRandomTile();
+//    }
+    //
+
     public Actor getOpponent() {
         if (currentPlayer == player1) {
             return player2;

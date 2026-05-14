@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "es2023",
+    "lib": ["ES2023", "DOM"],
+    "module": "esnext",
+    "types": ["vite/client"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
+}
+
+// крок назад(фронт +бек)(front- GamaPage,MoveControls,gameApi;BACK-GameController,Game)
+//таймер (фронт)GamaPage
+//підсказка(фронт)(Front-MoveControls,GamaPage)
+// бомба / Bomb (frontend + backend) (Frontend: GamePage.tsx, MoveControls.tsx, gameApi.ts; Backend: GameController.java, Game.java, Board.java)
+// збільшити карту / Bigger board (frontend + backend) (Frontend: Board.tsx, Board.сss, Tile.css, MoveControls.tsx ;Backend: Game.java)
+//профіль гравця(фронт- PlayerPanel.tsx,PlayerPanel.css)
+// фільтр коментарів / Filter comments (Frontend: FeedbackPage.tsx, gameApi.ts; Backend: CommentController.java)4
+//темна тема (фронт)GamaPage,FeedbackPage
+// поміняти плити місцями / Swap tiles (Frontend: GamePage.tsx, Board.tsx, Board.css ,gameApi.ts ; Backend: GameController.java, Game.java, Board.java, SwapTilesRequest.java
+// анімація перемоги / Win animation (Frontend: GamePage.tsx, GamePage.css)
+// зберегти стан гри / Save game state (Frontend: GamePage.tsx
+// leaderboard (Frontend: LeaderboardPage.tsx, LeaderboardPage.css, App.tsx, gameApi.ts, HomePage.tsx ;Backend: ScoreController.java
+// гість без імені / Guest name (Frontend: NamePage.tsx

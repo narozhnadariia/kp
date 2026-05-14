@@ -1,0 +1,149 @@
+.game-page {
+    min-height: 100vh;
+    padding: 28px;
+    background:
+            radial-gradient(circle at top left, #ffe27a, transparent 28%),
+            radial-gradient(circle at bottom right, #ff9f1c, transparent 24%),
+            linear-gradient(180deg, #1e90ff, #87ceeb);
+    color: #2d1600;
+}
+
+.game-title {
+    margin: 12px 0 24px;
+    text-align: center;
+    color: #fff4c7;
+    font-size: 54px;
+    text-shadow: 4px 4px 0 #8a5a12;
+}
+
+.game-layout {
+    display: grid;
+    grid-template-columns: 220px auto 540px;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}
+
+.players-column {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.game-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.right-column {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 16px;
+    background: #fff4c7;
+    border: 4px solid #8a5a12;
+    border-radius: 14px;
+    color: #2d1600;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 4px 0 #5f3b0b;
+}
+
+.winner-text {
+    width: fit-content;
+    margin: 0 auto 20px;
+    padding: 10px 18px;
+    background: #fff4c7;
+    border: 4px solid #8a5a12;
+    border-radius: 14px;
+    color: #111;
+    font-size: 28px;
+}
+
+
+/* темна тема */
+/*.theme-button {*/
+/*    margin-left: 14px;*/
+/*    padding: 10px 16px;*/
+/*    background: #fff4c7;*/
+/*    border: 4px solid #8a5a12;*/
+/*    border-radius: 14px;*/
+/*    color: #2d1600;*/
+/*    font-weight: 800;*/
+/*    cursor: pointer;*/
+/*    box-shadow: 0 4px 0 #5f3b0b;*/
+/*}*/
+
+/*.dark-theme {*/
+/*    background:*/
+/*            radial-gradient(circle at top left, #3a2d00, transparent 28%),*/
+/*            radial-gradient(circle at bottom right, #3d2500, transparent 24%),*/
+/*            linear-gradient(180deg, #0b1220, #1f2937);*/
+/*    color: #fff4c7;*/
+/*}*/
+
+/*.dark-theme .game-title {*/
+/*    color: #fff4c7;*/
+/*    text-shadow: 4px 4px 0 #000;*/
+/*}*/
+
+/*.dark-theme .player-panel,*/
+/*.dark-theme .score-guide,*/
+/*.dark-theme .move-controls,*/
+/*.dark-theme .next-tile {*/
+/*    background: #1f2937;*/
+/*    color: #fff4c7;*/
+/*    border-color: #ffd35a;*/
+/*}*/
+
+/*.dark-theme .move-button,*/
+/*.dark-theme .back-button,*/
+/*.dark-theme .theme-button {*/
+/*    background: #374151;*/
+/*    color: #fff4c7;*/
+/*    border-color: #ffd35a;*/
+/*    box-shadow: 0 4px 0 #111827;*/
+/*}*/
+/*!* *!*/
+
+/* анімація перемоги */
+/*.winner-animation {*/
+/*    width: fit-content;*/
+/*    margin: 0 auto 20px;*/
+/*    text-align: center;*/
+/*    animation: winner-pop 0.8s ease-in-out infinite alternate;*/
+/*}*/
+
+/*.confetti {*/
+/*    margin-top: 8px;*/
+/*    font-size: 34px;*/
+/*    animation: confetti-bounce 0.7s ease-in-out infinite alternate;*/
+/*}*/
+
+/*@keyframes winner-pop {*/
+/*    from {*/
+/*        transform: scale(1);*/
+/*    }*/
+
+/*    to {*/
+/*        transform: scale(1.08);*/
+/*    }*/
+/*}*/
+
+/*@keyframes confetti-bounce {*/
+/*    from {*/
+/*        transform: translateY(0);*/
+/*    }*/
+
+/*    to {*/
+/*        transform: translateY(-10px);*/
+/*    }*/
+/*}*/
+/* */

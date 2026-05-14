@@ -19,6 +19,8 @@ public class Score {
     private String player;
     private int points;
 
+
+
     //зберігає і дату і час
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "played_on")
@@ -27,6 +29,7 @@ public class Score {
     //Hibernate часто створює об’єкти сам, коли читає дані з таблиці.
     //Для цього йому потрібен конструктор без параметрів.
     public Score() {
+
     }
 
     public Score(String game, String player, int points, Date playedOn) {
@@ -34,11 +37,14 @@ public class Score {
         this.player = player;
         this.points = points;
         this.playedOn = playedOn;
+
     }
 
     public int getId() {
         return id;
     }
+
+
 
     public String getGame() {
         return game;
@@ -71,6 +77,8 @@ public class Score {
     public void setPlayedOn(Date playedOn) {
         this.playedOn = playedOn;
     }
+
+
 
     @Override
     public String toString() {

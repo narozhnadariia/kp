@@ -30,4 +30,23 @@ public class CommentController {
     public void reset() {
         commentService.reset();
     }
+
+//    //фільтр коментарів
+//    @GetMapping("/filter")
+//    public List<Comment> filterComments(
+//            @RequestParam String game,
+//            @RequestParam(required = false) String text
+//    ) {
+//        List<Comment> comments = commentService.getComments(game);
+//
+//        if (text == null || text.isBlank()) {
+//            return comments;
+//        }
+//
+//        return comments.stream()
+//                .filter(comment -> comment.getComment() != null &&
+//                        comment.getComment().toLowerCase().contains(text.toLowerCase()))
+//                .toList();
+//    }
+//    //
 }
