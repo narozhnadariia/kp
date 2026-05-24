@@ -25,11 +25,12 @@ import java.util.Map;
 public class GameController {
     private final Map<Long, Game> games = new HashMap<>();
     //крок назад
-//    private final Map<Long, Game> previousGames = new HashMap<>();
+//    private final Map<Long, Game> moveLog = new HashMap<>();
     //
     private long nextId = 1;
     private final ScoreService scoreService;
     private final RatingService ratingService;
+
     private final CommentService commentService;
 
 
@@ -134,6 +135,12 @@ public class GameController {
 
         return toResponse(id, game);
     }
+
+
+
+
+
+
 
     //крок назад
 //    @PostMapping("/{id}/move")
