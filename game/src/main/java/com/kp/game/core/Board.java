@@ -11,6 +11,14 @@ public class Board {
         random = new Random();
     }
 
+    public void fillBottomRowWithBananas() {
+        int bottomRow = grid.length - 1;
+
+        for (int col = 0; col < grid[bottomRow].length; col++) {
+            grid[bottomRow][col] = TileType.BANANA;
+        }
+    }
+
     public void fillRandom() {
         TileType[] values = TileType.values();
 

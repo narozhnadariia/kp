@@ -66,6 +66,8 @@ public class Game {
 //        return copyGame;
 //    }
 //
+
+
 //    private Actor copyActor(Actor actor) {
 //        Actor copy;
 //
@@ -95,6 +97,17 @@ public class Game {
     public boolean isGameOver() {
         return gameState != GameState.PLAYING;
     }
+
+    // bottom row bananas
+    public void makeBottomRowBananas() {
+        board.fillBottomRowWithBananas();
+
+        lastMoveScore = 0;
+        lastMoveLamasWon = 0;
+
+        checkWinner();
+    }
+//
 
     public void switchTurn() {
         if(currentPlayer == player1) {

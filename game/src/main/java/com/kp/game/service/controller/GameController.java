@@ -136,7 +136,18 @@ public class GameController {
         return toResponse(id, game);
     }
 
+    // bottom row bananas
+    @PostMapping("/{id}/bottom-row-bananas")
+    public GameResponse makeBottomRowBananas(@PathVariable Long id) {
+        Game game = getGameById(id);
 
+        if (!game.isGameOver()) {
+            game.makeBottomRowBananas();
+        }
+
+        return toResponse(id, game);
+    }
+//
 
 
 
